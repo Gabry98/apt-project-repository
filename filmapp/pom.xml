@@ -1,0 +1,503 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>io.github.gabry98.app</groupId>
+  <artifactId>filmapp</artifactId>
+  <description>Application for Reports of Films and Actors</description>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>filmapp</name>
+  <url>https://github.com/Gabry98/apt-project-repository</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>17</java.version>
+    <junit.jupiter.version>5.9.1</junit.jupiter.version>
+    <log4j.version>2.19.0</log4j.version>
+    <maven.plugins.version>3.1</maven.plugins.version>
+    <assertj.version>3.17.1</assertj.version>
+    <javadoc.version>3.4.1</javadoc.version>
+    <pitest.version>1.8.1</pitest.version>
+    <junit.pitest.version>0.16</junit.pitest.version>
+    <maven.surefirefailsafe.version>3.0.0-M5</maven.surefirefailsafe.version>
+    <maven.jar.version>2.4</maven.jar.version>
+    <maven.source.version>3.0.1</maven.source.version>
+    <mockito.version>5.0.0</mockito.version>
+    <maven.surefire.report.version>2.22.2</maven.surefire.report.version>
+    <maven.site.version>3.9.1</maven.site.version>
+    <coveralls.version>4.3.0</coveralls.version>
+    <jaxb.version>2.3.1</jaxb.version>
+    <mongo.version>3.12.7</mongo.version>
+    <mongo.server.version>1.11.1</mongo.server.version>
+    <logback.version>1.2.3</logback.version>
+    <build.helper.version>3.0.0</build.helper.version>
+    <testcontainers.version>1.15.1</testcontainers.version>
+    <picocli.version>4.6.1</picocli.version>
+    <jacoco.version>0.8.8</jacoco.version>
+    <sonar.jacoco.plugin.version>3.2.1</sonar.jacoco.plugin.version>
+    <docker.version>0.34.1</docker.version>
+    <sonar.coverage.exclusions>**/StreamingApp.*,**/Actor.*,**/Film.*,**/Report.*</sonar.coverage.exclusions>
+    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+    <sonar.scm.provider>git</sonar.scm.provider>
+    <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+    <sonar.issue.ignore.multicriteria>e11,e12,e13,e14</sonar.issue.ignore.multicriteria>
+    <sonar.issue.ignore.multicriteria.e11.ruleKey>java:S1604</sonar.issue.ignore.multicriteria.e11.ruleKey>
+    <sonar.issue.ignore.multicriteria.e11.resourceKey>**/*GUI*.java</sonar.issue.ignore.multicriteria.e11.resourceKey>
+    <sonar.issue.ignore.multicriteria.e12.ruleKey>java:S3252</sonar.issue.ignore.multicriteria.e12.ruleKey>
+    <sonar.issue.ignore.multicriteria.e12.resourceKey>**/*GUI*.java</sonar.issue.ignore.multicriteria.e12.resourceKey>
+    <sonar.issue.ignore.multicriteria.e13.ruleKey>java:S2699</sonar.issue.ignore.multicriteria.e13.ruleKey>
+    <sonar.issue.ignore.multicriteria.e13.resourceKey>**/*GUI*.java</sonar.issue.ignore.multicriteria.e13.resourceKey>
+    <sonar.issue.ignore.multicriteria.e14.ruleKey>java:S3577</sonar.issue.ignore.multicriteria.e14.ruleKey>
+    <sonar.issue.ignore.multicriteria.e14.resourceKey>**/*E2E*.java</sonar.issue.ignore.multicriteria.e14.resourceKey>
+    <sonar.organization>gabry98</sonar.organization>
+  	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  </properties>
+
+  <dependencies>
+	
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>${junit.jupiter.version}</version>
+        <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+	    <groupId>org.junit.jupiter</groupId>
+	    <artifactId>junit-jupiter-params</artifactId>
+	    <version>${junit.jupiter.version}</version>
+	    <scope>test</scope>
+	</dependency>
+    
+    <dependency>
+    	<groupId>org.apache.logging.log4j</groupId>
+    	<artifactId>log4j-api</artifactId>
+    	<version>${log4j.version}</version>
+    </dependency>
+    
+    <dependency>
+    	<groupId>org.apache.logging.log4j</groupId>
+    	<artifactId>log4j-core</artifactId>
+    	<version>${log4j.version}</version>
+    </dependency>
+    
+    <dependency>
+	    <groupId>org.assertj</groupId>
+	    <artifactId>assertj-core</artifactId>
+	    <version>${assertj.version}</version>
+	    <scope>test</scope>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.assertj</groupId>
+	    <artifactId>assertj-swing</artifactId>
+	    <version>${assertj.version}</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.assertj</groupId>
+	    <artifactId>assertj-swing-junit</artifactId>
+	    <version>${assertj.version}</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.mockito</groupId>
+	    <artifactId>mockito-core</artifactId>
+	    <version>${mockito.version}</version>
+	    <scope>test</scope>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.mockito</groupId>
+	    <artifactId>mockito-junit-jupiter</artifactId>
+	    <version>${mockito.version}</version>
+	    <scope>test</scope>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.mongodb</groupId>
+		<artifactId>mongo-java-driver</artifactId>
+		<version>${mongo.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>de.bwaldvogel</groupId>
+		<artifactId>mongo-java-server</artifactId>
+		<version>${mongo.server.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>ch.qos.logback</groupId>
+		<artifactId>logback-classic</artifactId>
+		<version>${logback.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.testcontainers</groupId>
+		<artifactId>testcontainers</artifactId>
+		<version>${testcontainers.version}</version>
+		<scope>test</scope>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.testcontainers</groupId>
+		<artifactId>mongodb</artifactId>
+		<version>${testcontainers.version}</version>
+		<scope>test</scope>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.testcontainers</groupId>
+		<artifactId>junit-jupiter</artifactId>
+		<version>${testcontainers.version}</version>
+		<scope>test</scope>
+	</dependency>
+
+	<dependency>
+		<groupId>info.picocli</groupId>
+		<artifactId>picocli</artifactId>
+		<version>${picocli.version}</version>
+	</dependency>
+	
+	<dependency>
+    	<groupId>org.pitest</groupId>
+    	<artifactId>pitest-junit5-plugin</artifactId>
+    	<version>${junit.pitest.version}</version>
+    </dependency>
+    
+    <dependency>
+	    <groupId>org.jacoco</groupId> 
+	    <artifactId>jacoco-maven-plugin</artifactId>
+	    <version>${jacoco.version}</version>
+	</dependency>
+    
+    <dependency>
+	   <groupId>org.codehaus.sonar.plugins</groupId>
+	   <artifactId>sonar-jacoco-plugin</artifactId>
+	   <version>${sonar.jacoco.plugin.version}</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.jacoco</groupId>
+	    <artifactId>org.jacoco.agent</artifactId>
+	    <version>${jacoco.version}</version>
+	    <scope>test</scope>
+	</dependency>
+ 
+  </dependencies>
+  
+  <profiles> 
+	  
+	  <profile>
+  		<id>jacoco</id>
+  		<build>
+  			<plugins>
+  				<plugin>
+  					<groupId>org.jacoco</groupId>
+  					<artifactId>jacoco-maven-plugin</artifactId>
+  				</plugin>
+  			</plugins>
+  		</build>
+  	</profile>
+	  
+	  <profile>
+  		<id>mutation-testing</id>
+  		<build>
+  			<plugins>
+  				<plugin>
+  					<groupId>org.pitest</groupId>
+  					<artifactId>pitest-maven</artifactId>
+  					<executions>
+  						<execution>
+  							<goals>
+  								<goal>mutationCoverage</goal>
+  							</goals>
+  							<phase>verify</phase>
+  						</execution>
+  					</executions>
+  				</plugin>
+  			</plugins>
+  		</build>
+  	</profile>
+  </profiles>
+  
+  <build>
+  
+  	<plugins>
+  		<plugin>
+	    	<groupId>org.apache.maven.plugins</groupId>
+	    	<artifactId>maven-compiler-plugin</artifactId>
+	    	<version>${maven.plugins.version}</version>
+	    	<configuration>
+	    		<source>${java.version}</source>
+	    		<target>${java.version}</target>
+	    	</configuration>
+	    </plugin>
+	    
+	    <plugin>
+	    	<groupId>org.apache.maven.plugins</groupId>
+	    	<artifactId>maven-source-plugin</artifactId>
+	    	<version>${maven.source.version}</version>
+	    	<executions>
+	    		<execution>
+	    			<id>attach-sources</id>
+	    			<phase>package</phase>
+	    			<goals>
+	    				<goal>jar</goal>
+	    			</goals>
+	    		</execution>
+	    	</executions>
+	    </plugin>
+	    
+	    <plugin>
+	    	<groupId>org.apache.maven.plugins</groupId>
+	    	<artifactId>maven-javadoc-plugin</artifactId>
+	    	<version>${javadoc.version}</version>
+	    	<executions>
+	    		<execution>
+	    			<id>attach-javadocs</id>
+	    			<goals>
+	    				<goal>jar</goal>
+	    			</goals>
+	    		</execution>
+	    	</executions>
+	    </plugin>
+	    
+	    <plugin>
+	    	<groupId>org.apache.maven.plugins</groupId>
+	    	<artifactId>maven-jar-plugin</artifactId>
+	    	<version>${maven.jar.version}</version>
+	    	<configuration>
+	    		<archive>
+	    			<manifest>
+	    				<mainClass>io.github.gabry98.app.filmapp.StreamingApp</mainClass>
+	    			</manifest>
+	    		</archive>
+	    	</configuration>
+	    </plugin>
+	    
+	    <plugin>
+	    	<groupId>org.apache.maven.plugins</groupId>
+	    	<artifactId>maven-assembly-plugin</artifactId>
+	    	<executions>
+	    		<execution>
+	    			<phase>package</phase>
+	    			<goals>
+	    				<goal>single</goal>
+	    			</goals>
+	    			<configuration>
+	    				<descriptorRefs>
+	    					<descriptorRef>jar-with-dependencies</descriptorRef>
+	    				</descriptorRefs>
+	    				<archive>
+	    					<manifest>
+	    						<mainClass>io.github.gabry98.app.filmapp.StreamingApp</mainClass>
+	    					</manifest>
+	    				</archive>
+	    			</configuration>
+	    		</execution>
+	    	</executions>
+	    </plugin>
+  	
+	  	<plugin>
+	    	<groupId>org.apache.maven.plugins</groupId>
+	    	<artifactId>maven-surefire-plugin</artifactId>
+	    	<version>${maven.surefirefailsafe.version}</version>
+	    	<configuration>
+	          <argLine>
+	            ${surefireArgLine}
+	          </argLine>
+	        </configuration>
+	    </plugin>
+	    
+	    <plugin>
+	    	<groupId>org.apache.maven.plugins</groupId>
+	    	<artifactId>maven-failsafe-plugin</artifactId>
+	    	<version>${maven.surefirefailsafe.version}</version>
+	    	<executions>
+	    		<execution>
+	    			<id>default-it</id>
+	    			<goals>
+	    				<goal>integration-test</goal>
+	    				<goal>verify</goal>
+	    			</goals>
+	    		</execution>
+	    		
+	    		<execution>
+	    			<id>e2e-tests</id>
+	    			<goals>
+	    				<goal>integration-test</goal>
+	    				<goal>verify</goal>
+	    			</goals>
+	    			<configuration>
+	    				<excludes>
+	    					<exclude>**/*IT.java</exclude>
+	    				</excludes>
+	    				<includes>
+	    					<include>**/*E2E.java</include>
+	    				</includes>
+	    			</configuration>
+	    		</execution>
+	    	</executions>
+	    </plugin>
+	    
+	    <plugin>
+	    	<groupId>org.pitest</groupId>
+	    	<artifactId>pitest-maven</artifactId>
+	    	<version>${pitest.version}</version>
+	    	<configuration>
+	    		<targetClasses>
+	  					<param>io.github.gabry98.app.filmapp.repository.mongo.ActorMongoRepository</param>
+	  					<param>io.github.gabry98.app.filmapp.repository.mongo.FilmMongoRepository</param>
+	  					<param>io.github.gabry98.app.filmapp.repository.mongo.ReportMongoRepository</param>
+	  					<param>io.github.gabry98.app.filmapp.controller.StreamingController</param>
+	  			</targetClasses>
+	  			<targetTests>
+	  					<param>io.github.gabry98.app.filmapp.ActorMongoRepositoryTest</param>
+	  					<param>io.github.gabry98.app.filmapp.FilmMongoRepositoryTest</param>
+	  					<param>io.github.gabry98.app.filmapp.ReportMongoRepositoryTest</param>
+	  					<param>io.github.gabry98.app.filmapp.StreamingControllerTest</param>
+	  			</targetTests>
+	  			<verbose>true</verbose>
+	    	</configuration>
+	    </plugin>
+	    
+	    <plugin>
+	    	<groupId>org.codehaus.mojo</groupId>
+	    	<artifactId>build-helper-maven-plugin</artifactId>
+	    	<version>${build.helper.version}</version>
+	    	<executions>
+	    		<execution>
+	    			<id>add-test-source</id>
+	    			<phase>generate-test-sources</phase>
+	    			<goals>
+	    				<goal>add-test-source</goal>
+	    			</goals>
+	    			<configuration>
+	    				<sources>
+	    					<source>src/it/java</source>
+	    					<source>src/e2e/java</source>
+	    				</sources>
+	    			</configuration>
+	    		</execution>
+	    	</executions>
+	    </plugin>
+	    
+	    <plugin>
+	    	<groupId>io.fabric8</groupId>
+	    	<artifactId>docker-maven-plugin</artifactId>
+	    	<version>${docker.version}</version>
+	    	<configuration>
+	    		<images>
+	    			<image>
+	    				<name>mongo:4.4.3</name>
+	    				<alias>project-db</alias>
+	    				<run>
+	    					<ports>
+								<port>27016:27017</port>
+							</ports>
+							<wait>
+								<http>
+									<url>http://localhost:27016</url>
+									<method>GET</method>
+									<status>200</status>
+								</http>
+								<time>10000</time>
+							</wait>
+	    				</run>
+	    			</image>
+	    		</images>
+	    	</configuration>
+	    	<executions>
+	    		<execution>
+	    			<id>docker-start</id>
+	    			<phase>pre-integration-test</phase>
+	    			<goals>
+	    				<goal>start</goal>
+	    			</goals>
+	    		</execution>
+	    		<execution>
+	    			<id>docker-stop</id>
+	    			<phase>post-integration-test</phase>
+	    			<goals>
+	    				<goal>stop</goal>
+	    			</goals>
+	    		</execution>
+	    	</executions>
+	    </plugin>
+  </plugins>
+  
+  <pluginManagement>
+  	<plugins>
+		
+		<plugin>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>${jacoco.version}</version>
+			<configuration>
+				<excludes>
+					<exclude>**/Actor.*</exclude>
+					<exclude>**/Film.*</exclude>
+					<exclude>**/Report.*</exclude>
+					<exclude>**/Generated.*</exclude>
+				</excludes>
+			</configuration>
+			<executions>
+				<execution>
+					<id>prepare-agent</id>
+					<goals>
+						<goal>prepare-agent</goal>
+					</goals>
+					<configuration>
+                        <destFile>${sonar.jacoco.reportPath}</destFile>
+                        <propertyName>surefireArgLine</propertyName>
+                    </configuration>
+				</execution>
+				<execution>
+					<id>report</id>
+					<goals>
+						<goal>report</goal>
+					</goals>
+					<configuration>
+                        <dataFile>${sonar.jacoco.reportPath}</dataFile>
+                        <outputDirectory>${jacoco.path}</outputDirectory>
+                    </configuration>
+				</execution>
+			</executions>
+		</plugin>  
+		
+  		<plugin>
+  			<artifactId>maven-surefire-report-plugin</artifactId>
+  			<version>${maven.surefire.report.version}</version>
+  		</plugin>
+  		
+  		<plugin>
+  			<artifactId>maven-site-plugin</artifactId>
+  			<version>${maven.site.version}</version>
+  		</plugin>
+  		
+  		<plugin>
+  			<groupId>org.eluder.coveralls</groupId>
+  			<artifactId>coveralls-maven-plugin</artifactId>
+  			<version>${coveralls.version}</version>
+  			<dependencies>
+  				<dependency>
+  					<groupId>javax.xml.bind</groupId>
+  					<artifactId>jaxb-api</artifactId>
+  					<version>${jaxb.version}</version>
+  				</dependency>
+  			</dependencies>
+  		</plugin>
+  		
+  		<plugin>
+  			<groupId>org.sonarsource.scanner.maven</groupId>
+  			<artifactId>sonar-maven-plugin</artifactId>
+  		</plugin>
+  	</plugins>
+  </pluginManagement>
+  
+  </build>
+  
+</project>
