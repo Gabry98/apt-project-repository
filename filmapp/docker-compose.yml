@@ -1,0 +1,36 @@
+version: "3"
+
+services:       
+   sonarqube:
+     image: sonarqube:9.4-community
+     depends_on:
+       - db
+     ports:
+       - "9000:9000"
+     networks:
+       - sonarnet
+     environment:
+       - sonar.jdbc.url=jdbc:postgresql://db:5432/sonar
+       - sonar.jdbc.username=sonar
+       - sonar.jdbc.password=sonar
+       
+   db:
+     image: postgres:15
+     networks:
+       - sonarnet
+     environment:
+       - POSTGRES_USER=sonar
+       - POSTGRES_PASSWORD=sonar
+       
+   mongodb:
+     image: mongo:4.4.3
+     networks:
+       - mynetwork
+     ports:
+       - "27017:27017"
+   
+networks:
+  sonarnet:
+    driver: bridge
+  mynetwork:
+    driver: bridge
