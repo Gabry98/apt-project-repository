@@ -51,7 +51,7 @@
     <sonar.issue.ignore.multicriteria.e13.resourceKey>**/*GUI*.java</sonar.issue.ignore.multicriteria.e13.resourceKey>
     <sonar.issue.ignore.multicriteria.e14.ruleKey>java:S3577</sonar.issue.ignore.multicriteria.e14.ruleKey>
     <sonar.issue.ignore.multicriteria.e14.resourceKey>**/*E2E*.java</sonar.issue.ignore.multicriteria.e14.resourceKey>
-    <sonar.organization>gabry98</sonar.organization>
+    <sonar.organization>apt-project-repository</sonar.organization>
   	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
   </properties>
 
