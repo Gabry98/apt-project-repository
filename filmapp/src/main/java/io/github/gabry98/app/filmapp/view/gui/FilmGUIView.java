@@ -370,7 +370,6 @@ public class FilmGUIView extends JFrame implements FilmView {
 			boolean filmNotEmptyAndIdAndDateEmpty, boolean dateNotEmptyAndIdAndFilmEmpty, boolean noSelection) {
 		filmAdd.setEnabled(idAndFilmAndDateNotEmpty);
 		filmUpdate.setEnabled((filmNotEmptyAndIdAndDateEmpty || idNotEmptyAndFilmAndDateEmpty || dateNotEmptyAndIdAndFilmEmpty) && !noSelection);
-		filmRemove.setEnabled(idNotEmptyAndFilmAndDateEmpty);
 	}
 	
 	protected void checkFilmName(boolean idAndFilmAndDateNotEmpty, boolean idNotEmptyAndFilmAndDateEmpty,

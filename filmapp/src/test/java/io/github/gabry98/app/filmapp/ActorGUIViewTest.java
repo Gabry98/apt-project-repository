@@ -107,14 +107,10 @@ class ActorGUIViewTest extends AssertJSwingJUnitTestCase {
 	}
 	
 	@Test @GUITest
-	@DisplayName("Test the scenario where we have the REMOVE button enabled for actorId and actors list selection.")
-	void testRemoveButtonEnabledForIdAndActorsList() {
+	@DisplayName("Test the scenario where we have the REMOVE button enabled foractors list selection.")
+	void testRemoveButtonEnabledForActorsList() {
 		actorView.actorAdded(1, "Marco Rossi");
 		window.textBox("actorId").enterText("1");
-		window.button(JButtonMatcher.withText("REMOVE")).requireEnabled();
-		window.textBox("actorName").enterText(" ");
-		window.textBox("actorId").setText("");
-		window.textBox("actorId").enterText(" ");
 		window.list("actorsList").selectItems(0);
 		window.button(JButtonMatcher.withText("REMOVE")).requireEnabled();
 	}

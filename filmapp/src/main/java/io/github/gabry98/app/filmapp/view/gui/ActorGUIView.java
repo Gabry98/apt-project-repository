@@ -313,7 +313,6 @@ public class ActorGUIView extends JFrame implements ActorView {
 			boolean actorNotEmptyAndIdEmpty, boolean noSelection) {
 		actorAdd.setEnabled(idAndActorEmpty);
 		actorUpdate.setEnabled((actorNotEmptyAndIdEmpty || idNotEmptyAndActorEmpty) && !noSelection);
-		actorRemove.setEnabled(idNotEmptyAndActorEmpty);
 	}
 	
 	protected void checkActorName(boolean idAndNameEmpty, boolean idNotEmptyAndActorEmpty, 

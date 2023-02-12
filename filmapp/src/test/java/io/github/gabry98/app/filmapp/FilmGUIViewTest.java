@@ -158,25 +158,6 @@ class FilmGUIViewTest extends AssertJSwingJUnitTestCase {
 	@GUITest
 	@ParameterizedTest
 	@CsvSource({
-		"' ',' ',' '",
-		"' ',1960,' '",
-		"' ',1960,1",
-		"King Kong,' ',' '",
-		"King Kong,' ',1",
-		"King Kong,1960,' '"
-    })
-	@DisplayName("Test all scenarios where we have the REMOVE button disabled for filmId.")
-	void testRemoveButtonDisabledForId(String filmName, String filmDate, String filmId) {
-		filmView.filmAdded(1, "King Kong", 1950);
-		window.textBox("filmName").enterText(filmName);
-		window.textBox("filmDate").enterText(filmDate);
-		window.textBox("filmId").enterText(filmId);
-		window.button(JButtonMatcher.withText("REMOVE")).requireDisabled();
-	}
-	
-	@GUITest
-	@ParameterizedTest
-	@CsvSource({
 		"filmId",
 		"filmName",
 		"filmDate"
