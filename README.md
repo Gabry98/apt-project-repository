@@ -1,5 +1,4 @@
 [![Coverage Status](https://coveralls.io/repos/github/Gabry98/apt-project-repository/badge.svg?branch=master)](https://coveralls.io/github/Gabry98/apt-project-repository?branch=master)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=apt-project-repository_filmapp&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=apt-project-repository_filmapp)
 
 # MAIN INFORMATIONS
 
